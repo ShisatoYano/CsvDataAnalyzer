@@ -64,6 +64,13 @@ class ScatterCreator2D():
         c_group_name = c_group_data_name[0]
         c_data_name = c_group_data_name[1]
         c_data = self.parent.dict_data_frame[c_group_name][c_data_name]
-        sc = self.axes.scatter(x_data, y_data, c=c_data, cmap='jet', marker='.', s=6)
+        c_min = self.parent.cmin_box.get()
+        c_max = self.parent.cmax_box.get()
+        if c_min and c_max:
+            vmin = round(float(c_min), 1)
+            vmax = round(float(c_max), 1)
+            sc = self.axes.scatter(x_data, y_data, c=c_data, vmin=vmin, vmax=vmax, cmap='jet', marker='.', s=6)
+        else:
+            sc = self.axes.scatter(x_data, y_data, c=c_data, cmap='jet', marker='.', s=6)
         plt.colorbar(sc)
         plt.pause(0.00001)

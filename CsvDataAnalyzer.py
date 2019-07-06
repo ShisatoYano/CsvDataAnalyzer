@@ -40,6 +40,7 @@ class CsvDataAnalyzer(ttk.Frame):
         self.init_status_bar()
         self.init_data_list()
         self.init_data_set_button()
+        self.init_entry_box()
     
     def init_combo_box(self):
         # plot color pattern
@@ -58,18 +59,30 @@ class CsvDataAnalyzer(ttk.Frame):
         self.marker_list_cmbbox.place(x=120, y=150)
         # axis equal ON/OFF
         self.equal_list_label = tk.Label(text='Axis Equal')
-        self.equal_list_label.place(x=25, y=180)
+        self.equal_list_label.place(x=25, y=230)
         self.equal_list_cmbbox = ttk.Combobox(self.root, state='readonly', justify='center', width=12)
         self.equal_list_cmbbox['values'] = self.equal_list
         self.equal_list_cmbbox.current(0)
-        self.equal_list_cmbbox.place(x=10, y=200)
+        self.equal_list_cmbbox.place(x=10, y=250)
         # kde(gaussian kernel density estimate) ON/OFF
         self.hist_kde_list_label = tk.Label(text='Hist KDE')
-        self.hist_kde_list_label.place(x=130, y=180)
+        self.hist_kde_list_label.place(x=130, y=230)
         self.hist_kde_list_cmbbox = ttk.Combobox(self.root, state='readonly', justify='center', width=12)
         self.hist_kde_list_cmbbox['values'] = self.hist_kde_list
         self.hist_kde_list_cmbbox.current(0)
-        self.hist_kde_list_cmbbox.place(x=120, y=200)
+        self.hist_kde_list_cmbbox.place(x=120, y=250)
+    
+    def init_entry_box(self):
+        # cmin set
+        self.cmin_label = tk.Label(text='C Min')
+        self.cmin_label.place(x=25, y=180)
+        self.cmin_box = tk.Entry(width=15, justify='center')
+        self.cmin_box.place(x=10, y=200)
+        # cmax set
+        self.cmax_label = tk.Label(text='C Max')
+        self.cmax_label.place(x=130, y=180)
+        self.cmax_box = tk.Entry(width=15, justify='center')
+        self.cmax_box.place(x=120, y=200)
     
     def init_data_set_button(self):
         # x data set
