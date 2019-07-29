@@ -21,6 +21,7 @@ import tkinter.filedialog as tkfd
 import ScatterCreator2D as sc2d
 import LineCreator2D as l2d
 import ScatterCreator3D as sc3d
+import LineCreator3D as l3d
 import HistgramCreator as hist
 
 class CsvDataAnalyzer(ttk.Frame):
@@ -187,6 +188,8 @@ class CsvDataAnalyzer(ttk.Frame):
         figure_menu.add_command(label='Create 2D Line', command=self.create_2d_line)
         # scatter 3D
         figure_menu.add_command(label='Create 3D Scatter', command=self.create_3d_scatter)
+        # line 3D
+        figure_menu.add_command(label='Create 3D Line', command=self.create_3d_line)
         # histgram
         figure_menu.add_command(label='Create Histgram', command=self.create_histgram)
         self.menu.add_cascade(label='Figures', menu=figure_menu)
@@ -258,6 +261,10 @@ class CsvDataAnalyzer(ttk.Frame):
     def create_3d_scatter(self):
         figure_num = len(self.created_figure) + 1
         self.created_figure.append(sc3d.ScatterCreator3D(self, figure_num))
+    
+    def create_3d_line(self):
+        figure_num = len(self.created_figure) + 1
+        self.created_figure.append(l3d.LineCreator3D(self, figure_num))
     
     def create_histgram(self):
         figure_num = len(self.created_figure) + 1
