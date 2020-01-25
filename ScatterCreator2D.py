@@ -48,7 +48,7 @@ class ScatterCreator2D():
         y_data = self.parent.dict_data_frame[y_group_name][y_data_name]
         color = self.parent.color_list_cmbbox.get()
         marker = self.parent.marker_list_cmbbox.get()
-        self.axes.scatter(x_data, y_data, c=color, marker=marker, s=6)
+        self.axes.scatter(x_data, y_data, c=color, marker=marker, s=30)
         plt.pause(0.00001)
     
     def create_x_y_heatmap(self):
@@ -69,8 +69,8 @@ class ScatterCreator2D():
         if c_min and c_max:
             vmin = round(float(c_min), 1)
             vmax = round(float(c_max), 1)
-            sc = self.axes.scatter(x_data, y_data, c=c_data, vmin=vmin, vmax=vmax, cmap='jet', marker='.', s=6)
+            sc = self.axes.scatter(x_data, y_data, c=c_data, vmin=vmin, vmax=vmax, cmap='jet', marker='.', s=30)
         else:
-            sc = self.axes.scatter(x_data, y_data, c=c_data, cmap='jet', marker='.', s=6)
+            sc = self.axes.scatter(x_data, y_data, c=c_data, cmap='jet', marker='.', s=30)
         plt.colorbar(sc)
         plt.pause(0.00001)
