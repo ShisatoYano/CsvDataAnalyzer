@@ -56,7 +56,7 @@ class ScatterCreator3D():
         z_data_name = z_group_data_name[1]
         z_data = self.parent.dict_data_frame[z_group_name][z_data_name]
         color = self.parent.color_list_cmbbox.get()
-        self.axes.scatter(x_data, y_data, z_data, c=color, marker='.', s=6)
+        self.axes.scatter(x_data, y_data, z_data, c=color, marker='.', s=30)
         plt.pause(0.00001)
     
     def create_x_y_z_heatmap(self):
@@ -82,8 +82,8 @@ class ScatterCreator3D():
             vmin = round(float(c_min), 1)
             vmax = round(float(c_max), 1)
             sc = self.axes.scatter(x_data, y_data, z_data, c=c_data, vmin=vmin, 
-                                   vmax=vmax, cmap='jet', marker='.', s=6)
+                                   vmax=vmax, cmap='jet', marker='.', s=30)
         else:
-            sc = self.axes.scatter(x_data, y_data, z_data, c=c_data, cmap='jet', marker='.', s=6)
+            sc = self.axes.scatter(x_data, y_data, z_data, c=c_data, cmap='jet', marker='.', s=30)
         plt.colorbar(sc)
         plt.pause(0.00001)
