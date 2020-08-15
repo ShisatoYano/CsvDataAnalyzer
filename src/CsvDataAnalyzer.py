@@ -19,10 +19,11 @@ import tkinter as tk
 import tkinter.ttk as ttk
 import tkinter.filedialog as tkfd
 import ScatterCreator2D as sc2d
-import LineCreator2D as l2d
 import ScatterCreator3D as sc3d
-import LineCreator3D as l3d
+import LineCreator2D as l2d
 import HistgramCreator as hist
+import LineCreator3D as l3d
+
 
 class CsvDataAnalyzer(ttk.Frame):
 
