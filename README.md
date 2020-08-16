@@ -3,6 +3,24 @@ A CSV file data analyzer using pure Python.
 
 ## Table of contents
 
+* [About this repository](#about-this-repository)
+* [Gallery](#gallery)
+* [Requirements](#requirements)
+* [Getting Started](#getting-started)
+* [How to use](#how-to-use)
+    * [Reading CSV file](#reading-csv-file)
+    * [Calculating Statics](#calculating-statics)
+    * [Creating Graph](#creating-graph)
+    * [2D Line Graph](#2d-line-graph)
+    * [2D Scatter Graph](#2d-scatter-graph)
+    * [3D Line Graph](#3d-line-graph)
+    * [3D Scatter Graph](#3d-scatter-graph)
+    * [Histogram](#histogram)
+    * [Axis Equal](#axis-equal)
+    * [Kernel Density Estimation](#kernel-density-estimation)
+* [License](#license)
+* [Author](#author)
+
 ## About this repository
 This is a CSV file data analyzer based on Python.  
 
