@@ -3,3 +3,4 @@ numpy
 seaborn
 pandas
 pytest
+pytest-cov
