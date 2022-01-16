@@ -37,5 +37,11 @@
 
 ## パッケージ図で全体構成を俯瞰する
 * 個々の細かいクラス設計を隠ぺいして、パッケージ単位で全体の構成を俯瞰する
-* ![](uml/PackageDiagram/PackageDiagram.png)
+![](uml/PackageDiagram/PackageDiagram.png)  
+
+## 業務フロー図で全体の流れを把握する
+* 業務の様々な活動を、時間軸に沿って図示したもの
+* 活動の主体ごとにレーンを並べて、それぞれの間での情報のやり取りを明らかにする
+* クラス候補を見つけるときに、業務の流れに沿って登場するオブジェクトとして発見できる
+![](uml/BusinessFlowDiagram/BusinessFlowDiagram.png)  
 
