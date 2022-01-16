@@ -1,6 +1,5 @@
 matplotlib
-mpl_toolkits
 numpy
 seaborn
 pandas
-tkinter
+pytest
