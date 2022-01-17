@@ -23,9 +23,8 @@ class User:
     def csv_file_name(self):
         return self.file_path.split('/')[-1]
 
-    def csv_file_directory(self):
-        split_path = self.file_path.split('/')
-        return '/'.join(split_path[0:len(split_path)-1])
-
     def csv_file_path(self):
         return self.file_path
+
+    def is_csv_file(self):
+        return ".csv" in self.file_path.split('/')[-1]

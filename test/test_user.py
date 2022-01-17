@@ -9,11 +9,12 @@ Author: Shisato Yano
 import sys
 sys.path.append("../")
 
-from src.user.user import User
+from src.csv_data_analyzer.domain_model.user.user import User
 
 TEST_PATH_CUR_DIR = "sample.csv"
 TEST_PATH_DATA_DIR = "data/sample.csv"
 TEST_PATH_MULTI_DIR = "data1/data2/sample.csv"
+TEST_PATH_NO_CSV = "sample.txt"
 
 
 def test_init():
@@ -49,15 +50,11 @@ def test_csv_file_name():
     assert "sample.csv" == user_multi_dir.csv_file_name()
 
 
-def test_csv_file_directory():
-    user_cur_dir = User()
-    user_cur_dir.select_csv_file(TEST_PATH_CUR_DIR)
-    assert "" == user_cur_dir.csv_file_directory()
+def test_is_csv_file():
+    user_csv = User()
+    user_csv.select_csv_file(TEST_PATH_CUR_DIR)
+    assert True is user_csv.is_csv_file()
 
-    user_data_dir = User()
-    user_data_dir.select_csv_file(TEST_PATH_DATA_DIR)
-    assert "data" == user_data_dir.csv_file_directory()
-
-    user_multi_dir = User()
-    user_multi_dir.select_csv_file(TEST_PATH_MULTI_DIR)
-    assert "data1/data2" == user_multi_dir.csv_file_directory()
+    user_no_csv = User()
+    user_no_csv.select_csv_file(TEST_PATH_NO_CSV)
+    assert False is user_no_csv.is_csv_file()
