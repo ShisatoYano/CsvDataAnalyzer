@@ -19,9 +19,4 @@ package ユーザー {
     読込 ..> ユーザー
 }
 
-package CSVファイル {
-    class CSVファイル
-    読込 ..> CSVファイル
-}
-
 @enduml
