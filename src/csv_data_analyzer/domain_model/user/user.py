@@ -7,7 +7,6 @@ This class know the following information.
 
 Path to file you want to read.
 Name of file.
-Directory where file is located.
 
 Author: Shisato Yano
 """
