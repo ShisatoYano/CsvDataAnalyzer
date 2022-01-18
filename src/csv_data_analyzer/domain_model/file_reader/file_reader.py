@@ -19,7 +19,7 @@ class FileReader:
         self._csv_file = CsvFile()
 
     def read_csv_file(self, file_path):
-        if self._csv_file.is_csv_file(file_path):
+        if self._csv_file.is_readable(file_path):
             self._data_frame = pd.read_csv(file_path)
 
     def data_frame(self):

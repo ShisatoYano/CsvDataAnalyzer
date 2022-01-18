@@ -13,11 +13,11 @@ sys.path.append("../")
 from src.csv_data_analyzer.domain_model.csv_file.csv_file import CsvFile
 
 
-def test_is_csv():
+def test_is_readable():
     csv_obj = CsvFile()
-    assert csv_obj.is_csv_file("test.csv") is True
+    assert csv_obj.is_readable("test.csv") is True
 
 
-def test_is_not_csv():
+def test_is_not_readable():
     csv_obj = CsvFile()
-    assert csv_obj.is_csv_file("test.txt") is False
+    assert csv_obj.is_readable("test.txt") is False

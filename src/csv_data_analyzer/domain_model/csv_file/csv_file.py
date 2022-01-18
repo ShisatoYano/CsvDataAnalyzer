@@ -8,7 +8,7 @@ Author: Shisato Yano
 
 
 class CsvFile:
-    def is_csv_file(self, file_path):
+    def is_readable(self, file_path):
         if ".csv" in file_path:
             return True
         else:
