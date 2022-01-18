@@ -1,12 +1,12 @@
 @startuml
 
-package 読込 {
-    class 読込
+package ファイル読込 {
+    class ファイル読込
 }
 
 package 統計 {
     class 統計
-    読込 <. 統計
+    ファイル読込 <. 統計
 }
 
 package 可視化 {
@@ -16,7 +16,12 @@ package 可視化 {
 
 package ユーザー {
     class ユーザー
-    読込 ..> ユーザー
+    ファイル読込 ..> ユーザー
+}
+
+package CSVファイル {
+    class CSVファイル
+    ファイル読込 ..> CSVファイル
 }
 
 @enduml
