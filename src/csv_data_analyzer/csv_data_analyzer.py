@@ -9,7 +9,6 @@ Author: Shisato Yano
 """
 
 import argparse
-import os.path
 
 from domain_model.user.user import User
 
@@ -29,6 +28,8 @@ def main():
     # User select a file
     user = User()
     user.select_file(args.file)
+
+    # Read selected file
 
 
 if __name__ == "__main__":
