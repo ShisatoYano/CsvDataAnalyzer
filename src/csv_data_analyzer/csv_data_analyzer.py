@@ -11,6 +11,8 @@ Author: Shisato Yano
 import argparse
 import os.path
 
+from domain_model.user.user import User
+
 
 def main():
     # generate ArgumentParser object
@@ -23,7 +25,10 @@ def main():
 
     # get and analyze command line input
     args = parser.parse_args()
-    print(os.path.exists(args.file))
+
+    # User select a file
+    user = User()
+    user.select_file(args.file)
 
 
 if __name__ == "__main__":
