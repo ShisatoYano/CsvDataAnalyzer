@@ -6,11 +6,9 @@ FileReader class
 Ahthor: Shisato Yano
 """
 
-import sys
-sys.path.append("../")
 import pandas as pd
 
-from src.csv_data_analyzer.domain_model.csv_file.csv_file import CsvFile
+from ..csv_file.csv_file import CsvFile
 
 
 class FileReader:

@@ -10,7 +10,7 @@ Author: Shisato Yano
 
 import argparse
 
-from domain_model.user.user import User
+from domain_model import *
 
 
 def main():
@@ -26,10 +26,13 @@ def main():
     args = parser.parse_args()
 
     # User select a file
-    user = User()
-    user.select_file(args.file)
+    user_obj = User()
+    user_obj.select_file(args.file)
 
     # Read selected file
+    reader = FileReader()
+    reader.read_csv_file(user_obj.file_path())
+    print(reader.data_frame())
 
 
 if __name__ == "__main__":
