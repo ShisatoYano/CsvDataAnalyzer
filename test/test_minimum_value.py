@@ -15,4 +15,4 @@ from src.csv_data_analyzer.domain_model.statistics.minimum_value import MinimumV
 
 def test_minimum_value():
     min_value = MinimumValue()
-    assert min_value.calculate_minimum_value([1, 3, 5, 19, 8]) == 1
+    assert min_value.calculate([1, 3, 5, 19, 8]) == 1

@@ -10,5 +10,5 @@ import numpy as np
 
 
 class MinimumValue:
-    def calculate_minimum_value(self, array):
+    def calculate(self, array):
         return np.min(array)
