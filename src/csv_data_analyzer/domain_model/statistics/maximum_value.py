@@ -10,5 +10,5 @@ import numpy as np
 
 
 class MaximumValue:
-    def calculate_maximum_value(self, array):
+    def calculate(self, array):
         return np.max(array)
