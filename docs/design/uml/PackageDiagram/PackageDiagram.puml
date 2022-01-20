@@ -6,12 +6,12 @@ package ファイル読込 {
 
 package 統計 {
     class 統計
-    ファイル読込 <. 統計
+    統計 ..> ファイル読込
 }
 
 package 可視化 {
     class 可視化
-    統計 <. 可視化
+    可視化 ..> ファイル読込
 }
 
 package ユーザー {
