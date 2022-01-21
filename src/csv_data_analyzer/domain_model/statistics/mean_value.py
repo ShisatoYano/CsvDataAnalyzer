@@ -4,6 +4,8 @@
 MeanValue class
 
 Calculate mean value of given array
+
+Author: Shisato Yano
 """
 
 import numpy as np
