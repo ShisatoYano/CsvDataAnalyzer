@@ -4,6 +4,8 @@
 MinimumValueCollection class
 
 Collect minimum value of each data
+
+Author: Shisato Yano
 """
 
 from .minimum_value import MinimumValue
