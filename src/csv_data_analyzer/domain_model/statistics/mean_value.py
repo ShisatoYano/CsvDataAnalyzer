@@ -10,5 +10,5 @@ import numpy as np
 
 
 class MeanValue:
-    def calculate_mean_value(self, array):
+    def calculate(self, array):
         return np.mean(array)
