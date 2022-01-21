@@ -4,6 +4,8 @@
 MaximumValue class
 
 Calculate maximum value of given array
+
+Author: Shisato Yano
 """
 
 import numpy as np
