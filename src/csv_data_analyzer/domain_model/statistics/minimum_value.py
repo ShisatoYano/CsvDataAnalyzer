@@ -4,6 +4,8 @@
 MinimumValue class
 
 Calculate minimum value of given array
+
+Author: Shisato Yano
 """
 
 import numpy as np
