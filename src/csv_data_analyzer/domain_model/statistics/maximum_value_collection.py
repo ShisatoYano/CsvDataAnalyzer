@@ -4,6 +4,8 @@
 MaximumValueCollection class
 
 Collect maximum value of each data
+
+Author: Shisato Yano
 """
 
 from .maximum_value import MaximumValue
