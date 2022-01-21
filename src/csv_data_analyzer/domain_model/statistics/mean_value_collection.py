@@ -4,6 +4,8 @@
 MeanValueCollection class
 
 Collect mean value of each data
+
+Author: Shisato Yano
 """
 
 from .mean_value import MeanValue
