@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Test code  for MaximumValueCollection class
+Test code  for MaximumValues class
 
 Author: Shisato Yano
 """
