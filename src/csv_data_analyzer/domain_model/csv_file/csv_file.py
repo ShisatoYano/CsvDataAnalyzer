@@ -8,8 +8,13 @@ Author: Shisato Yano
 
 
 class CsvFile:
-    def is_readable(self, file_path):
-        if ".csv" in file_path:
-            return True
-        else:
-            return False
+    def __init__(self, file_path):
+        self._file_path = file_path
+
+    def file_path(self):
+        if self._is_readable(): return self._file_path
+        return ""
+
+    def _is_readable(self):
+        if ".csv" in self._file_path: return True
+        return False
