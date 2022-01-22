@@ -6,3 +6,4 @@ from .maximum_values import MaximumValues
 from .minimum_values import MinimumValues
 from .mean_values import MeanValues
 from .std_dev_values import StdDevValues
+from .statistics import Statistics
