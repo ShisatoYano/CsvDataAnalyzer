@@ -9,6 +9,7 @@ Author: Shisato Yano
 """
 
 import argparse
+import matplotlib.pyplot as plt
 
 from domain_model import *
 
@@ -25,14 +26,47 @@ def main():
     # get and analyze command line input
     args = parser.parse_args()
 
-    # User select a file
-    user_obj = User()
-    user_obj.select_file(args.file)
+    # select a file
+    csv_object = CsvFile(args.file)
 
     # Read selected file
-    reader = FileReader()
-    reader.read_csv_file(user_obj.file_path())
-    print(reader.data_frame())
+    reader = FileReader(csv_object.file_path())
+
+    # Calculate statistics
+    stats = Statistics()
+    stats.calculate(reader.data_frame(), reader.data_name_list())
+
+    # Plot data graph
+    l2d = Line2D()
+    l2d.plot(reader.data_array("pointNum"),
+             reader.data_array("player1Score"),
+             "red")
+    l2de = Line2DEqual()
+    l2de.plot(reader.data_array("pointNum"),
+              reader.data_array("player1Score"),
+              "red")
+    sc2d = Scatter2D()
+    sc2d.plot(reader.data_array("pointNum"),
+              reader.data_array("player1Score"),
+              "blue", "*")
+    sc2de = Scatter2DEqual()
+    sc2de.plot(reader.data_array("pointNum"),
+               reader.data_array("player1Score"),
+               "blue", "*")
+    hm2d = Heatmap2D()
+    hm2d.plot(reader.data_array("pointNum"),
+              reader.data_array("player1Score"),
+              reader.data_array("pointNum"),
+              min(reader.data_array("pointNum")),
+              max(reader.data_array("pointNum")))
+    hm2de = Heatmap2DEqual()
+    hm2de.plot(reader.data_array("pointNum"),
+               reader.data_array("player1Score"),
+               reader.data_array("pointNum"),
+               min(reader.data_array("pointNum")),
+               max(reader.data_array("pointNum")))
+
+    plt.show()
 
 
 if __name__ == "__main__":
