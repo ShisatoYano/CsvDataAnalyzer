@@ -14,11 +14,6 @@ package 可視化 {
     可視化 ..> ファイル読込
 }
 
-package ユーザー {
-    class ユーザー
-    ファイル読込 ..> ユーザー
-}
-
 package CSVファイル {
     class CSVファイル
     ファイル読込 ..> CSVファイル
