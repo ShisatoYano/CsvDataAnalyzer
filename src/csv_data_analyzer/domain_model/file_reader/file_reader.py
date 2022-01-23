@@ -19,3 +19,6 @@ class FileReader:
 
     def data_name_list(self):
         return tuple(self._data_frame.columns.to_list())
+
+    def data_array(self, data_name):
+        return tuple(self._data_frame[data_name].values)
