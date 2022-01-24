@@ -1,0 +1,26 @@
+@startuml
+
+hide circle
+hide method
+
+package プレゼンテーション層 {
+    class 画面
+}
+
+package アプリケーション層 {
+    class 進行役
+}
+
+package データソース層 {
+    class 記録と通知の仕組み
+}
+
+package 業務ロジック {
+    class ドメインモデル
+}
+
+画面 --> 進行役
+進行役 -> ドメインモデル
+進行役 --> 記録と通知の仕組み
+
+@enduml
