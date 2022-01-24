@@ -51,3 +51,92 @@
 * プログラムとしてうまく記述できる設計クラスを見つける
 * クラス名やメソッド名を、業務で使う用語の単位と一致させる設計を行う
 
+## アプリケーション層のクラスの役割
+* 処理の流れの進行役であり、調整役
+* プレゼンテーション層からの依頼を受ける
+* 適切なドメインオブジェクトに判断/加工/計算を依頼する
+* プレゼンテーション層に結果(ドメインオブジェクト)を返す
+* データソース層に記録や通知の入出力を指示する
+* この層のクラスをサービスクラスという  
+![](uml/ThreeLayerDomainModel/ThreeLayerDomainModel.png)
+
+### サービスクラスの例: 注文処理
+```java
+class OrderRegisterService {
+    OrderRepository repository;
+    
+    void register(Order order) {
+        repository.register(order);
+    }
+}
+```
+
+### サービスクラスを作りながらドメインモデルを改善する
+* メソッドが複雑になってきたら、複数のメソッドに分けるなどの部品化を考える
+* データベースとの入出力が入り組んできて、処理の流れがデータベース操作の手続きになり始めたら、リポジトリの設計やドメインオブジェクトの設計を見直す
+* サービスクラスのコードをシンプルに保つようなクラスの役割分担を心がける
+
+### サービスクラスの設計
+* まずは、独立性の高い部品に分けることを考える
+* 登録系のサービスと参照系のサービスを分ける
+#### 登録系
+* プレゼンテーション層から渡された情報を検証する
+* 加工や計算を行ったうえで、記録したり通知する
+#### 参照系
+* プレゼンテーション層の依頼に基づき情報を生成する
+* 生成した情報をプレゼンテーション層に戻す
+#### 更新と参照を分離する設計
+```java
+class BankAccountService {
+    BankAccountRepository repository;
+    
+    Amount balance() {
+        return repository.balance();
+    }
+    
+    boolean canWithdraw(Amount amount) {
+        Amount balance = balance();
+        return balance().has(amount);
+    }
+}
+
+class BankAccountUpdateService {
+    BankAccountRepository repository;
+    
+    void withdraw(Amount amount) {
+        repository.withdraw(amount);
+    }
+}
+```
+#### 組み合わせ用のサービスクラスを作る
+* 基本サービスを組み合わせた複合サービスを表現するためにシナリオクラスを作る
+```java
+class BankAccountScenario {
+    BankAccountService queryService;
+    BankAccountUpdateService updateService;
+    
+    Amount withdraw(Amount amount) {
+        if(! querySerive.canWithdraw(amount))
+            throw new IllegalStateException("残高不足");
+        updateService.withdraw(amount);
+        return queryService.balance();
+    }
+}
+```
+
+### 契約による設計
+* サービスを利用する側と提供する側とで、サービス提供ごとの約束事を決め、設計をシンプルに保つ技法
+* プログラムの異常な処理を防止するための設計の基本原則
+* 内部のデータ状態を外部から隠ぺいする
+* プレゼンテーション層と、どういう約束事でサービスを提供するかを決めるのが重要
+* nullを渡さない/nullを返さない
+* 状態に依存する場合、使う側が事前に確認する
+* 約束を守ったうえでさらに異常が起きた場合、例外で通知する
+
+### データベースの都合から分離する
+* 業務の視点からの記録と参照の関心事をリポジトリとして宣言する
+* リポジトリは、ドメインオブジェクトの保管と取り出しができる収納場所
+* 全てのドメインオブジェクトをメモリ上に保管して、いつでも取り出せるしくみ
+* リポジトリを使った業務データの記録と参照は、データベース操作ではなく、業務の関心事として記述するための工夫
+* サービスクラスの中からは、リポジトリを利用して業務データの記録や参照を行う
+* リポジトリのメソッド名/引数/返す値は、全て業務の用語で表現する
