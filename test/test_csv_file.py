@@ -10,14 +10,19 @@ Author: Shisato Yano
 import sys
 sys.path.append("../")
 
-from src.csv_data_analyzer.domain_model.csv_file.csv_file import CsvFile
+from src.csv_data_analyzer.domain_model.read.csv_file import CsvFile
 
 
-def test_readable_file_path():
+def test_path():
     csv_obj = CsvFile("test.csv")
-    assert csv_obj.file_path() == "test.csv"
+    assert csv_obj.path() == "test.csv"
 
 
-def test_not_readable_file_path():
-    not_csv_obj = CsvFile("test.txt")
-    assert not_csv_obj.file_path() == ""
+def test_readable():
+    csv_obj = CsvFile("test.csv")
+    assert csv_obj.is_readable() is True
+
+
+def test_not_readable():
+    csv_obj = CsvFile("test.txt")
+    assert csv_obj.is_readable() is False
